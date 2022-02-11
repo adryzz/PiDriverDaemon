@@ -11,6 +11,7 @@ public static class Program
                 .AddOutput(new ConsoleLogOutput())
                 .AddOutput(new ThrottledFileOutput(LoggingUtils.GenerateLogName()))
                 .Build())
+            .UseModules("modules")
             .Build().StartRunAsync();
 
         await Task.Delay(-1);

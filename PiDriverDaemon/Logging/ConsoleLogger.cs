@@ -10,14 +10,10 @@ public class ConsoleLogOutput : ILogOutput
     {
         _output = new StreamLogOutput(Console.OpenStandardOutput());
     }
-        
-    public async ValueTask DisposeAsync()
-    {
-        await _output.DisposeAsync();
-    }
 
-    public async Task WriteAsync(byte[] data)
-    {
-        await _output.WriteAsync(data);
-    }
+    public async Task WriteAsync(byte[] data) => await _output.WriteAsync(data);
+
+    public Task FlushAsync() => _output.FlushAsync();
+    
+    public async ValueTask DisposeAsync() => await _output.DisposeAsync();
 }

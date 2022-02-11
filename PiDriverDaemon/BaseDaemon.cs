@@ -15,7 +15,7 @@ public class BaseDaemon : IDaemon
 
     public async Task StartRunAsync()
     {
-        
+        await Log.LogAsync(new LogMessage("Daemon started!"));
     }
     
     public async ValueTask DisposeAsync()

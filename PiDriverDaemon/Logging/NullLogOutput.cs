@@ -9,13 +9,9 @@ public sealed class NullLogOutput : ILogOutput
         _output = new StreamLogOutput(Stream.Null);
     }
 
-    public async Task WriteAsync(byte[] data)
-    {
-        await _output.WriteAsync(data);
-    }
-    
-    public async ValueTask DisposeAsync()
-    {
-        await _output.DisposeAsync();
-    }
+    public async Task WriteAsync(byte[] data) => await _output.WriteAsync(data);
+
+    public async Task FlushAsync() => await _output.FlushAsync();
+
+    public async ValueTask DisposeAsync() => await _output.DisposeAsync();
 }

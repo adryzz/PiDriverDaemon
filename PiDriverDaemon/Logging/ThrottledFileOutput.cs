@@ -9,13 +9,9 @@ public sealed class ThrottledFileOutput : ILogOutput
         _output = new StreamLogOutput(new BufferedStream(File.OpenWrite(path), bufferSize));
     }
 
-    public async Task WriteAsync(byte[] data)
-    {
-        await _output.WriteAsync(data);
-    }
+    public async Task WriteAsync(byte[] data) => await _output.WriteAsync(data);
 
-    public async ValueTask DisposeAsync()
-    {
-        await _output.DisposeAsync();
-    }
+    public Task FlushAsync() => _output.FlushAsync();
+
+    public async ValueTask DisposeAsync() => await _output.DisposeAsync();
 }

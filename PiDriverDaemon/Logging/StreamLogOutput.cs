@@ -19,8 +19,7 @@ public class StreamLogOutput : ILogOutput
         }
     }
 
-    public async ValueTask DisposeAsync()
-    {
-        await _stream.DisposeAsync();
-    }
+    public async Task FlushAsync() => await _stream.FlushAsync();
+
+    public async ValueTask DisposeAsync() => await _stream.DisposeAsync();
 }

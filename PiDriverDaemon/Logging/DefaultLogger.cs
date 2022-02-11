@@ -29,12 +29,6 @@ public class DefaultLogger : ILogger
         //await FlushAsync();
     }
 
-    public async Task LogAsync(string message)
-    {
-        LogMessage m = new LogMessage(message);
-        await LogAsync(m);
-    }
-    
     public async Task FlushAsync()
     {
         await foreach (LogMessage m in ReadAvailableLogsAsync())
@@ -44,6 +38,11 @@ public class DefaultLogger : ILogger
             {
                 await o.WriteAsync(message);
             }
+        }
+
+        foreach (ILogOutput o in Outputs)
+        {
+            await o.FlushAsync();
         }
     }
     

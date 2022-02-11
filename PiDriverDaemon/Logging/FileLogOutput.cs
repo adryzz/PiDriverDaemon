@@ -9,13 +9,9 @@ public class FileLogOutput : ILogOutput
         _output = new StreamLogOutput(File.OpenWrite(path));
     }
     
-    public async Task WriteAsync(byte[] data)
-    {
-        await _output.WriteAsync(data);
-    }
-    
-    public async ValueTask DisposeAsync()
-    {
-        await _output.DisposeAsync();
-    }
+    public async Task WriteAsync(byte[] data) => await _output.WriteAsync(data);
+
+    public async Task FlushAsync() => await _output.FlushAsync();
+
+    public async ValueTask DisposeAsync() => await _output.DisposeAsync();
 }

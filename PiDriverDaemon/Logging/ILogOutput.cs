@@ -1,6 +1,6 @@
 namespace PiDriverDaemon.Logging;
 
-public class ILogOutput
+public interface ILogOutput : IAsyncDisposable
 {
-    
+    public Task WriteAsync(byte[] data);
 }

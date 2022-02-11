@@ -1,6 +1,21 @@
 namespace PiDriverDaemon.Logging;
 
-public class NullLogOutput
+public sealed class NullLogOutput : ILogOutput
 {
+    private StreamLogOutput _output;
     
+    public NullLogOutput()
+    {
+        _output = new StreamLogOutput(Stream.Null);
+    }
+
+    public async Task WriteAsync(byte[] data)
+    {
+        await _output.WriteAsync(data);
+    }
+    
+    public async ValueTask DisposeAsync()
+    {
+        await _output.DisposeAsync();
+    }
 }

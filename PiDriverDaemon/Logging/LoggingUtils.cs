@@ -1,6 +1,9 @@
 namespace PiDriverDaemon.Logging;
 
-public class LoggingUtils
+public static class LoggingUtils
 {
-    
+    public static string GenerateLogName()
+    {
+        return String.Empty;
+    }
 }

@@ -4,6 +4,6 @@ public static class LoggingUtils
 {
     public static string GenerateLogName()
     {
-        return String.Empty;
+        return $"log-{DateTime.Now:yy-MM-dd-HH-m}.log";
     }
 }

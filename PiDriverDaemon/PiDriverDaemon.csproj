@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <PackageReference Include="NodaTime" Version="3.0.9" />
+      <PackageReference Include="SerialPortStream" Version="2.4.0" />
     </ItemGroup>
 
 </Project>

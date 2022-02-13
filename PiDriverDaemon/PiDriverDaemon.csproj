@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Batteryno" Version="2.0.0" />
       <PackageReference Include="NodaTime" Version="3.0.9" />
       <PackageReference Include="SerialPortStream" Version="2.4.0" />
     </ItemGroup>

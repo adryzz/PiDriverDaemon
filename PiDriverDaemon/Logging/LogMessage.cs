@@ -2,7 +2,7 @@ using NodaTime;
 
 namespace PiDriverDaemon.Logging;
 
-public class LogMessage
+public struct LogMessage
 {
     public Instant LogTime { get; }
 
@@ -24,7 +24,7 @@ public class LogMessage
         Severity = severity;
         Colored = colored;
     }
-
+    
     public override string ToString()
     {
         if (Colored)

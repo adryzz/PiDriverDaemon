@@ -2,17 +2,17 @@ using PiDriverDaemon.Logging;
 
 namespace PiDriverDaemon;
 
-public class DaemonBuilder
+internal class DaemonBuilder
 {
     private ILogger _logger;
     private string _modulesPath;
     
-    public DaemonBuilder()
+    internal DaemonBuilder()
     {
         
     }
 
-    public IDaemon Build()
+    internal IDaemon Build()
     {
         return new BaseDaemon()
         {
